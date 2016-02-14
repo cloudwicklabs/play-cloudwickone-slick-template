@@ -1,0 +1,41 @@
+@(title: String)(content: Html)
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Cloudwick One</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Cloudwick One">
+        <meta name="author" content="Cloudwick Sync">
+
+        <link rel="icon" type="image/ico" href="@routes.Assets.versioned("images/favicon.ico")">
+        <link rel="stylesheet" href='@routes.WebJarAssets.at(WebJarAssets.locate("bootstrap.css"))'>
+        <link rel="stylesheet" href='@routes.WebJarAssets.at(WebJarAssets.locate("bootstrap-theme.css"))'>
+        <link rel="stylesheet" media="screen" href='@routes.Assets.versioned("stylesheets/main.css")'>
+    </head>
+
+    <body>
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/">Cloudwick One</a>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="/users">Users</a></li>
+                    </ul>
+                </div>
+            </div> <!-- container -->
+        </div> <!-- navbar -->
+
+        @content
+
+        <div id="footer">
+            <div class="container">
+                <p class="text-muted text-center">&copy; 2014-2016 <a target="_blank" href='http://www.cloudwick.com'>Cloudwick</a>, Inc. All rights reserved</p>
+            </div>
+        </div>
+    </body>
+
+    <script src='@routes.WebJarAssets.at(WebJarAssets.locate("jquery.js"))' type="text/javascript"></script>
+    <script src='@routes.WebJarAssets.at(WebJarAssets.locate("bootstrap.js"))' type="text/javascript"></script>
+</html>

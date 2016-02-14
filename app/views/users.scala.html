@@ -1,0 +1,36 @@
+@(page: Page[User], form: Form[(String, String, Int, Boolean)])(implicit messages: play.api.i18n.Messages, flash: Flash)
+
+@import partials.alert
+
+@implicitFieldConstructor = @{ b3.horizontal.fieldConstructor("col-md-2", "col-md-10") }
+
+@main(title = "Users") {
+
+  @defining(flash.get("message")) { message =>
+    @if(message.isDefined) {
+      @alert(flash.get("state").getOrElse("info"))(message.get)
+    }
+  }
+
+  <div class="container theme-showcase" role="main">
+    <h1>Existing Users:</h1>
+    <ul>
+    @for(user <- page.items) {
+      <li>@user</li>
+    }
+    </ul>
+
+    <hr>
+
+    <h1>Add New User:</h1>
+    @b3.form(routes.UserController.createUser) {
+      @b3.text(form("firstName"), '_label -> "First Name")
+      @b3.text(form("lastName"), '_label -> "Last Name")
+      @b3.number(form("age"), '_label -> "Age")
+      @b3.checkbox(form("active"), '_text -> "Active User?", 'value -> true)
+      @b3.submit('class -> "btn btn-default"){ Create User }
+    }
+
+  </div>
+
+}

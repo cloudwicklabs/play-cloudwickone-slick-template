@@ -1,0 +1,16 @@
+@(message: String)(implicit flash: Flash)
+
+@import partials.alert
+
+@main("Cloudwick One") {
+
+    @defining(flash.get("message")) { message =>
+        @if(message.isDefined) {
+            @alert(flash.get("state").getOrElse("info"))(message.get)
+        }
+    }
+
+    <div class="container theme-showcase" role="main">
+        <h1>Cloudwick One</h1>
+    </div>
+}

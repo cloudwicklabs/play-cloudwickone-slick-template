@@ -1,0 +1,6 @@
+Cloudwick One Play Template with SSO
+====================================
+
+This is a Play framework template with Cloudwick One branding backed by Slick (Postgres) and supports SSO using Silhouette library.
+
+[TODO] Integrate Silhouette with Slick
